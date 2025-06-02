@@ -1,0 +1,34 @@
+{
+    "name": "BallGrab",
+    "maps": [
+        {
+            "name": "BallGrabAction",
+            "id": "b7eaaafb-7625-436b-95bb-e13809ca1f1b",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "23908a8f-22fe-41b0-8eb6-18da39f0ebf1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "78959161-ebb9-4f70-8546-e4f3c0fc7006",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
