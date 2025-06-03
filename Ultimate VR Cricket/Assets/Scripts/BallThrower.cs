@@ -15,6 +15,7 @@ public class BallThrower : MonoBehaviour
     public float maxSpeed = 33f;      // 120 km/h
 
     [Header("Line / Length Variation (metres)")]
+    public float bounceDistance = 5.5f;
     public float lateralSpread = 0.25f;   // ±25 cm either side
     public float lengthSpread = 0.35f;   // ±35 cm shorter/ fuller
 
@@ -68,7 +69,7 @@ public class BallThrower : MonoBehaviour
                        + pitchDir * Random.Range(-lengthSpread, lengthSpread);
 
         // 🏏 New: Set a bounce point instead of aiming directly at the batter
-        float bounceDistance = 5.5f; // meters from bowler — adjust for realism
+         // meters from bowler — adjust for realism
         Vector3 bouncePoint = spawnPoint.position + pitchDir * bounceDistance + offset;
 
         // 3. Choose a realistic speed toward the bounce point
