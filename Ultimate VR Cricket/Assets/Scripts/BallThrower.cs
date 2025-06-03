@@ -28,6 +28,11 @@ public class BallThrower : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────────────
     float timer;
 
+    private void Start()
+    {
+        InvokeRepeating("StartBowling", 8f, 4f);
+    }
+
     void Update()
     {
         //timer += Time.deltaTime;
@@ -130,13 +135,18 @@ public class BallThrower : MonoBehaviour
     {
         Debug.Log("Dhukse");
         GetComponent<Animator>().applyRootMotion = false;
-        GetComponent<Animator>().runtimeAnimatorController = idleCon;
+        //GetComponent<Animator>().enabled = false;
+        //GetComponent<Animator>().runtimeAnimatorController = idleCon;
         transform.position = initPos.transform.position;
     }
 
     public void StartBowling()
-    {        
-        GetComponent<Animator>().runtimeAnimatorController = bowlingCon;
+    {
+        //GetComponent<Animator>().runtimeAnimatorController = bowlingCon;
+        Debug.Log("Starttt");
+        //GetComponent<Animator>().enabled = true;
         GetComponent<Animator>().applyRootMotion = true;
+        GetComponent<Animator>().Play(animationName, -1, 0f);
+        
     }
 }
