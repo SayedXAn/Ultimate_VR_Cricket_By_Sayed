@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 public class BallThrower : MonoBehaviour
 {
     [Header("References")]
     public Transform spawnPoint;      // where the bowler “releases” the ball
     public Transform target;          // e.g., the batter’s off-stump
-    public GameObject ballPrefab;     // prefab must carry a Rigidbody
+    public GameObject ballPrefab;    // prefab must carry a Rigidbody
+    public GameObject test;    // prefab must carry a Rigidbody
+    public GameObject initPos;
+    public AnimatorController idleCon;
+    public AnimatorController bowlingCon;
+    public string animationName = "Bowling_Anim";
 
     [Header("Timing")]
     [Min(0.1f)] public float interval = 2f;   // seconds between deliveries
@@ -24,12 +30,12 @@ public class BallThrower : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= interval)
-        {
-            timer -= interval;
-            BowlOne();
-        }
+        //timer += Time.deltaTime;
+        //if (timer >= interval)
+        //{
+        //    timer -= interval;
+        //    BowlOne();
+        //}
     }
 
     // ─────────────────────────────────────────────────────────────────────────────
@@ -55,7 +61,7 @@ public class BallThrower : MonoBehaviour
     //    // 4. Fire!
     //    rb.linearVelocity = launchVel;
     //}
-    void BowlOne()
+    public void BowlOne()
     {
         // 1. Instantiate the ball
         GameObject ball = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
@@ -119,5 +125,18 @@ public class BallThrower : MonoBehaviour
         Vector3 dirXZ = toTargetXZ.normalized;
         Vector3 result = dirXZ * speed * cosTheta + Vector3.up * speed * sinTheta;
         return result;
+    }
+    public void ResetBowler()
+    {
+        Debug.Log("Dhukse");
+        GetComponent<Animator>().applyRootMotion = false;
+        GetComponent<Animator>().runtimeAnimatorController = idleCon;
+        transform.position = initPos.transform.position;
+    }
+
+    public void StartBowling()
+    {        
+        GetComponent<Animator>().runtimeAnimatorController = bowlingCon;
+        GetComponent<Animator>().applyRootMotion = true;
     }
 }
