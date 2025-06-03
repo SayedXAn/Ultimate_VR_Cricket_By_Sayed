@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 6499309417695556045}
   m_Layer: 0
   m_Name: Cricket Bat
-  m_TagString: Untagged
+  m_TagString: bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,8 +116,8 @@ Transform:
   m_GameObject: {fileID: 6788389398419830962}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.50000006, z: -0.8660254, w: 0}
-  m_LocalPosition: {x: 0.001, y: 0.2797, z: 0.3641}
-  m_LocalScale: {x: 23, y: 20, z: 20}
+  m_LocalPosition: {x: 0.001, y: 0.3417, z: 0.4715}
+  m_LocalScale: {x: 23, y: 22.6, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3194512241567648613}

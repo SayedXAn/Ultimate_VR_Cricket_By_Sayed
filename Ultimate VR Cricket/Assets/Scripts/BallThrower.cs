@@ -1,5 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallThrower : MonoBehaviour
 {
@@ -9,8 +8,6 @@ public class BallThrower : MonoBehaviour
     public GameObject ballPrefab;    // prefab must carry a Rigidbody
     public GameObject test;    // prefab must carry a Rigidbody
     public GameObject initPos;
-    public AnimatorController idleCon;
-    public AnimatorController bowlingCon;
     public string animationName = "Bowling_Anim";
 
     [Header("Timing")]
@@ -30,7 +27,7 @@ public class BallThrower : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("StartBowling", 8f, 4f);
+        InvokeRepeating("StartBowling", 1f, 4f);
     }
 
     void Update()
