@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 621678285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 34.648, y: 0.646, z: -0.654}
+  m_LocalPosition: {x: 25.22, y: -2.82, z: -0.57}
   m_LocalScale: {x: 0.47707, y: 1, z: 0.15409}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5271,7 +5271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3085858937975217392}
   - component: {fileID: 5605507186927332818}
-  - component: {fileID: 5866666021121855485}
+  - component: {fileID: 5866666021121855486}
   m_Layer: 0
   m_Name: Bowler
   m_TagString: Untagged
@@ -5803,6 +5803,30 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.2216
+      objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0064
+      objectReference: {fileID: 0}
+    - target: {fileID: 230089184838322226, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0311
+      objectReference: {fileID: 0}
     - target: {fileID: 551640912366384909, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -5810,6 +5834,18 @@ PrefabInstance:
     - target: {fileID: 607274660632257130, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631148794421476017, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 631148794421476017, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 631148794421476017, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.6
       objectReference: {fileID: 0}
     - target: {fileID: 878777759207107628, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5820,8 +5856,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1752525709887065270, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 92.212555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752525709887065270, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752525709887065270, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.66046
       objectReference: {fileID: 0}
     - target: {fileID: 1865143063031607702, guid: bc9cd575d90f2ca4d9d245f31a908476, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11820,7 +11864,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 710464752947788155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5866666021121855485
+--- !u!114 &5866666021121855486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11829,21 +11873,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2315581639582569390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206302b87cb95a94ba8463fa7b0354c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a9d0aef0e7a94e4c893d8db10c6ec20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1042220732}
-  target: {fileID: 621678286}
   ballPrefab: {fileID: 5382272637968696399, guid: 466b28915416d814280f73ef327a3826, type: 3}
-  test: {fileID: 1084732887}
+  bowlingPoint: {fileID: 1042220731}
+  dropTarget: {fileID: 621678286}
+  timeToDrop: 1.3
+  deliveryInterval: 0.5
   initPos: {fileID: 1169202633}
   animationName: Bowling_Anim
-  interval: 2.3
-  minSpeed: 25
-  maxSpeed: 35
-  bounceDistance: 6
-  lateralSpread: 0.15
-  lengthSpread: 0.2
+  angleVariation: 2
+  spinTorque: 5
+  bounceRandomness: 0.15
 --- !u!4 &5882611529102798864
 Transform:
   m_ObjectHideFlags: 0
@@ -13216,11 +13258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6309448108461993613, guid: 003d11bd5eee3394c9d70d351d8cbbf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.372
+      value: 0.3965
       objectReference: {fileID: 0}
     - target: {fileID: 6309448108461993613, guid: 003d11bd5eee3394c9d70d351d8cbbf7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.525
+      value: 0.5678
       objectReference: {fileID: 0}
     - target: {fileID: 6309448108461993613, guid: 003d11bd5eee3394c9d70d351d8cbbf7, type: 3}
       propertyPath: m_LocalRotation.w
