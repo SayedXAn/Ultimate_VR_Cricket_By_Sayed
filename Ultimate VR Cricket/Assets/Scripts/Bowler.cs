@@ -14,12 +14,15 @@ public class Bowler : MonoBehaviour
     [Header("Variation")]
     public float angleVariation = 5f;       // Degrees left/right
     public float spinTorque = 5f;           // Spin on delivery
-    public float bounceRandomness = 0.15f;  // 0.1 = �10% bounce height variation
+    public float bounceRandomness = 0.15f;
+    Ball ballScript;// 0.1 = �10% bounce height variation
+
 
     private float timer = 0f;
 
     private void Start()
     {
+        
         InvokeRepeating("StartBowling", 1f, 4f);
     }
 
@@ -35,7 +38,7 @@ public class Bowler : MonoBehaviour
 
     void Bowl()
     {
-        // Instantiate ball
+        dropTarget.transform.position = new Vector3(Random.Range(22f, 30f), dropTarget.transform.position.y, dropTarget.transform.position.z);
         GameObject ball = Instantiate(ballPrefab, bowlingPoint.transform.position, Quaternion.identity);
         Rigidbody rb = ball.GetComponent<Rigidbody>();
 
@@ -45,25 +48,26 @@ public class Bowler : MonoBehaviour
             return;
         }
 
-        // Calculate random lateral offset (simulates slight angle variation)
+        // Direction variation
         Vector3 targetPos = dropTarget.position;
         float angleOffset = Random.Range(-angleVariation, angleVariation);
         Vector3 lateralOffset = Quaternion.Euler(0, angleOffset, 0) * (targetPos - transform.position);
         targetPos = transform.position + lateralOffset;
 
-        // Compute launch velocity
+        // Compute velocity
+        timeToDrop = Random.Range(0.75f, 1.3f);
         Vector3 velocity = CalculateLaunchVelocity(transform.position, targetPos, timeToDrop);
         rb.linearVelocity = velocity;
 
-        // Add spin
-        Vector3 spinAxis = Vector3.right; // Customize for leg/offswing
-        rb.AddTorque(spinAxis * spinTorque, ForceMode.Impulse);
+        // Define spin direction (e.g., leg spin = right, off spin = -right)
+        Vector3 spinAxis = Vector3.right;
 
-        // Assign bounce behavior to ball script
-        BallBounce bounceScript = ball.GetComponent<BallBounce>();
-        if (bounceScript != null)
+        // Send spin data to Ball script
+        Ball ballScript = ball.GetComponent<Ball>();
+        if (ballScript != null)
         {
-            bounceScript.bounceMultiplier = Random.Range(1f - bounceRandomness, 1f + bounceRandomness);
+            ballScript.spinTorque = spinTorque;
+            ballScript.spinAxis = spinAxis;
         }
     }
 
