@@ -12,6 +12,7 @@ TagManager:
   - boundary
   - logics
   - stamp
+  - audiosource
   layers:
   - Default
   - TransparentFX

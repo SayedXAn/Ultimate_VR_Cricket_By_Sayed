@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     private int wicket = 0;
     public TMP_Text scoreBoardText;
     public TMP_Text notiText;
+    public AudioSource crowdAudio;
 
     private void Start()
     {
@@ -43,7 +44,9 @@ public class ScoreManager : MonoBehaviour
     IEnumerator Notification()
     {
         notiText.gameObject.SetActive(true);
+        crowdAudio.volume = 0.5f;
         yield return new WaitForSeconds(3);
         notiText.gameObject.SetActive(false);
+        crowdAudio.volume = 0.1f;
     }
 }

@@ -24,10 +24,14 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     ScoreManager scoreManager;
 
+    public AudioClip[] SFX;
+    public AudioSource audioSource;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GameObject.FindWithTag("audiosource").GetComponent<AudioSource>();
         scoreManager = GameObject.FindWithTag("logics").GetComponent<ScoreManager>();
         StartCoroutine(CountDownTimer());
     }
@@ -58,6 +62,7 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("bat"))
         {
             hitByBat = true;
+            PlaySFX(2);
             //trail.emitting = true; //Always on kore disi
         }
         if (hitByBat && collision.gameObject.CompareTag("pitch"))
@@ -71,12 +76,13 @@ public class Ball : MonoBehaviour
         if(collision.gameObject.CompareTag("stamp"))
         {
             //out
+            PlaySFX(1);
             scoreManager.UpdateScore(0, 1);
         }
         if (collision.gameObject.CompareTag("pitch") && !hitByBat && !hasBounced)
         {
             hasBounced = true;
-
+            PlaySFX(0);
             // Apply bounce deviation (side movement)
             Vector3 velocity = rb.linearVelocity;
             float deviation = Random.Range(-deviationValue, deviationValue);
@@ -91,6 +97,11 @@ public class Ball : MonoBehaviour
         }
     }
 
+    public void PlaySFX(int index)
+    {
+        audioSource.clip = SFX[index];
+        audioSource.Play();
+    }
 
 
     IEnumerator CountDownTimer()
