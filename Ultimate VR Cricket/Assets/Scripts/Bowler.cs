@@ -23,7 +23,7 @@ public class Bowler : MonoBehaviour
     private void Start()
     {
         
-        InvokeRepeating("StartBowling", 1f, 4f);
+        InvokeRepeating("StartBowling", 1f, 8f);
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class Bowler : MonoBehaviour
 
     void Bowl()
     {
-        dropTarget.transform.position = new Vector3(Random.Range(22f, 30f), dropTarget.transform.position.y, dropTarget.transform.position.z);
+        dropTarget.transform.position = new Vector3(Random.Range(26f, 34f), dropTarget.transform.position.y, dropTarget.transform.position.z);
         GameObject ball = Instantiate(ballPrefab, bowlingPoint.transform.position, Quaternion.identity);
         Rigidbody rb = ball.GetComponent<Rigidbody>();
 
@@ -88,7 +88,7 @@ public class Bowler : MonoBehaviour
 
     public void ResetBowler()
     {
-        Debug.Log("Dhukse");
+        //Debug.Log("Dhukse");
         GetComponent<Animator>().applyRootMotion = false;
         //GetComponent<Animator>().enabled = false;
         //GetComponent<Animator>().runtimeAnimatorController = idleCon;
@@ -98,7 +98,7 @@ public class Bowler : MonoBehaviour
     public void StartBowling()
     {
         //GetComponent<Animator>().runtimeAnimatorController = bowlingCon;
-        Debug.Log("Starttt");
+        //Debug.Log("Starttt");
         //GetComponent<Animator>().enabled = true;
         GetComponent<Animator>().applyRootMotion = true;
         GetComponent<Animator>().Play(animationName, -1, 0f);

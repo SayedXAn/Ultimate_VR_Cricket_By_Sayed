@@ -4,7 +4,6 @@ public class BatCollision : MonoBehaviour
     public float powerMultiplier = 1.5f;
     private Vector3 lastPosition;
     private Vector3 batVelocity;
-    public AudioSource AS;
 
     void Update()
     {
@@ -17,7 +16,6 @@ public class BatCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            AS.Play();
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
             if (ballRb != null)
             {

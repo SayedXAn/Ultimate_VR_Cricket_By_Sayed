@@ -9,6 +9,10 @@ TagManager:
   - pitch
   - bat
   - field
+  - boundary
+  - logics
+  - stamp
+  - audiosource
   layers:
   - Default
   - TransparentFX
