@@ -8,6 +8,7 @@ TagManager:
   - ball
   - pitch
   - bat
+  - field
   layers:
   - Default
   - TransparentFX

@@ -11681,10 +11681,10 @@ MonoBehaviour:
   animationName: Bowling_Anim
   interval: 2.3
   minSpeed: 25
-  maxSpeed: 35
+  maxSpeed: 30
   bounceDistance: 6
-  lateralSpread: 0.15
-  lengthSpread: 0.2
+  lateralSpread: 0.1
+  lengthSpread: 0.15
 --- !u!4 &5882611529102798864
 Transform:
   m_ObjectHideFlags: 0

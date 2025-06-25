@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pitch : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] PhysicsMaterial pitchMat;
     void Start()
     {
         
@@ -12,5 +12,27 @@ public class Pitch : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "ball")
+        {
+            if(collision.gameObject.GetComponent<Ball>().hitByBat)
+            {
+                GetComponent<BoxCollider>().material = null;
+            }
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "ball")
+        {
+            if (collision.gameObject.GetComponent<Ball>().hitByBat)
+            {
+                GetComponent<BoxCollider>().material = pitchMat;
+            }
+        }
     }
 }
