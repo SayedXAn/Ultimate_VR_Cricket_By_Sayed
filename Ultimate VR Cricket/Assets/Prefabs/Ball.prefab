@@ -140,9 +140,9 @@ MonoBehaviour:
   bounceMultiplier: 1
   trail: {fileID: 3326262179861382391}
   speed: 0
-  spinTorque: 3
+  spinTorque: 1.2
   spinAxis: {x: 0, y: 0, z: 0}
-  deviationValue: 3
+  deviationValue: 1.2
 --- !u!135 &4959679349696131927
 SphereCollider:
   m_ObjectHideFlags: 0

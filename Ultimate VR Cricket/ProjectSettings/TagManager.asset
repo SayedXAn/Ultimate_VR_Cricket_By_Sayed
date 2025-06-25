@@ -9,6 +9,9 @@ TagManager:
   - pitch
   - bat
   - field
+  - boundary
+  - logics
+  - stamp
   layers:
   - Default
   - TransparentFX
