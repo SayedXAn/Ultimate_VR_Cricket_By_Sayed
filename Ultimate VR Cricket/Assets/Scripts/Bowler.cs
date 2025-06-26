@@ -36,7 +36,7 @@ public class Bowler : MonoBehaviour
         //}
     }
 
-    void Bowl()
+    public void Bowl()
     {
         dropTarget.transform.position = new Vector3(Random.Range(26f, 34f), dropTarget.transform.position.y, dropTarget.transform.position.z);
         GameObject ball = Instantiate(ballPrefab, bowlingPoint.transform.position, Quaternion.identity);
@@ -104,4 +104,80 @@ public class Bowler : MonoBehaviour
         GetComponent<Animator>().Play(animationName, -1, 0f);
 
     }
+
+
+    public void LegSpinBowl()
+    {
+        dropTarget.transform.position = new Vector3(Random.Range(26f, 34f), dropTarget.transform.position.y, dropTarget.transform.position.z);
+        GameObject ball = Instantiate(ballPrefab, bowlingPoint.transform.position, Quaternion.identity);
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+
+        if (rb == null)
+        {
+            Debug.LogError("Ball prefab must have a Rigidbody.");
+            return;
+        }
+
+        // Direction variation
+        Vector3 targetPos = dropTarget.position;
+        float angleOffset = Random.Range(0f, angleVariation);
+        Vector3 lateralOffset = Quaternion.Euler(0, angleOffset, 0) * (targetPos - transform.position);
+        targetPos = transform.position + lateralOffset;
+
+        // Compute velocity
+        timeToDrop = Random.Range(1.1f, 1.3f);
+        Vector3 velocity = CalculateLaunchVelocity(transform.position, targetPos, timeToDrop);
+        rb.linearVelocity = velocity;
+
+        // Define spin direction (e.g., leg spin = right, off spin = -right)
+        Vector3 spinAxis = Vector3.right;
+
+        // Send spin data to Ball script
+        Ball ballScript = ball.GetComponent<Ball>();
+        if (ballScript != null)
+        {
+            ballScript.spinTorque = spinTorque;
+            ballScript.spinAxis = spinAxis;
+        }
+    }
+
+    public void OffSpinBowl()
+    {
+        dropTarget.transform.position = new Vector3(Random.Range(26f, 34f), dropTarget.transform.position.y, dropTarget.transform.position.z);
+        GameObject ball = Instantiate(ballPrefab, bowlingPoint.transform.position, Quaternion.identity);
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+
+        if (rb == null)
+        {
+            Debug.LogError("Ball prefab must have a Rigidbody.");
+            return;
+        }
+
+        // Direction variation
+        Vector3 targetPos = dropTarget.position;
+        float angleOffset = Random.Range(-angleVariation, angleVariation);
+        Vector3 lateralOffset = Quaternion.Euler(0, angleOffset, 0) * (targetPos - transform.position);
+        targetPos = transform.position + lateralOffset;
+
+        // Compute velocity
+        timeToDrop = Random.Range(1.1f, 1.3f);
+        Vector3 velocity = CalculateLaunchVelocity(transform.position, targetPos, timeToDrop);
+        rb.linearVelocity = velocity;
+
+        // Define spin direction (e.g., leg spin = right, off spin = -right)
+        Vector3 spinAxis = Vector3.right;
+
+        // Send spin data to Ball script
+        Ball ballScript = ball.GetComponent<Ball>();
+        if (ballScript != null)
+        {
+            ballScript.spinTorque = spinTorque;
+            ballScript.spinAxis = spinAxis;
+        }
+    }
+
+
 }
+
+
+//
