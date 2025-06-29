@@ -150,6 +150,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e6a3d311efcee448b57b5344ad31c9d, type: 3}
   - {fileID: 8300000, guid: 091a45f43087e1c4196bd111a7c655b1, type: 3}
   audioSource: {fileID: 0}
+  groundCheckDistance: 0.08
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  debugText: {fileID: 0}
 --- !u!135 &4959679349696131927
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -425,7 +430,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 1
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!1 &6207652713026805141
 GameObject:

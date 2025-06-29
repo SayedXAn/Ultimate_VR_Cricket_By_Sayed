@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,12 +28,17 @@ public class Ball : MonoBehaviour
     public AudioClip[] SFX;
     public AudioSource audioSource;
 
+    public float groundCheckDistance = 0.01f;
+    public LayerMask groundLayer;
+    public TMP_Text debugText;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GameObject.FindWithTag("audiosource").GetComponent<AudioSource>();
         scoreManager = GameObject.FindWithTag("logics").GetComponent<ScoreManager>();
+        debugText = GameObject.FindWithTag("debugtext").GetComponent<TMP_Text>();
         StartCoroutine(CountDownTimer());
     }
     void FixedUpdate()
@@ -47,10 +53,11 @@ public class Ball : MonoBehaviour
         {
             rb.isKinematic = true;
         }
-        if (hitByBat)
-        {
-            Debug.DrawRay(transform.position, Vector3.up * 0.2f, Color.green);
-        }
+
+
+        CheckGroundContactWithRaycast();
+
+
         //if(hitByBat && speed <= 0.0008f)
         //{
         //    GetComponent<Rigidbody>().isKinematic = true;
@@ -63,16 +70,19 @@ public class Ball : MonoBehaviour
         {
             hitByBat = true;
             PlaySFX(2);
-            //trail.emitting = true; //Always on kore disi
+            trail.emitting = true;
+            debugText.text = "Bat hit";
         }
-        if (hitByBat && collision.gameObject.CompareTag("pitch"))
-        {
-            hitGround = true;
-        }
-        if (hitByBat && collision.gameObject.CompareTag("field"))
-        {
-            hitGround = true;
-        }
+        //if (hitByBat && collision.gameObject.CompareTag("pitch"))
+        //{
+        //    hitGround = true;
+        //    debugText.text = debugText.text + "\nPitch hit korse";
+        //}
+        //if (hitByBat && collision.gameObject.CompareTag("field"))
+        //{
+        //    hitGround = true;
+        //    debugText.text = debugText.text + "\nField hit korse";
+        //}
         if(collision.gameObject.CompareTag("stamp"))
         {
             //out
@@ -109,5 +119,20 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(20f);
         Destroy(gameObject);
     }
-    
+
+    void CheckGroundContactWithRaycast()
+    {
+        if (hitByBat && !hitGround)
+        {
+            Ray ray = new Ray(transform.position, Vector3.down);
+            if (Physics.Raycast(ray, groundCheckDistance, groundLayer))
+            {
+                hitGround = true;
+                Debug.DrawRay(transform.position, GetComponent<Rigidbody>().angularVelocity.normalized * 0.5f, Color.red);
+                Debug.Log("Ball has hit the ground.");
+                debugText.text = debugText.text + "\nGround hit korse";
+            }
+        }
+    }
+
 }

@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
         {
             ShowNotification("Out!");
         }
-        scoreBoardText.text = totalRun.ToString() + "/" + wicket.ToString();
+        scoreBoardText.text = totalRun.ToString() + "-" + wicket.ToString();
     }
 
     public void ShowNotification(string str)

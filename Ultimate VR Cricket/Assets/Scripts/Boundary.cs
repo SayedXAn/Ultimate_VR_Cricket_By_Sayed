@@ -20,9 +20,8 @@ public class Boundary : MonoBehaviour
         {            
             if (other.gameObject.GetComponent<Ball>().hitByBat && !other.gameObject.GetComponent<Ball>().hitBoundary)
             {
-                Debug.Log("dhukseeeeeeeeeeeeeeeeee: " + other.gameObject.name);
                 other.gameObject.GetComponent<Ball>().hitBoundary = true;
-                if(other.gameObject.GetComponent<Ball>().hitGround)
+                if(other.gameObject.GetComponent<Ball>().hitGround )
                 {
                     //4
                     scoreManager.UpdateScore(4, 0);
