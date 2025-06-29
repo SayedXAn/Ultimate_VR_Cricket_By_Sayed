@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -53,15 +52,8 @@ public class Ball : MonoBehaviour
         {
             rb.isKinematic = true;
         }
-
-
         CheckGroundContactWithRaycast();
 
-
-        //if(hitByBat && speed <= 0.0008f)
-        //{
-        //    GetComponent<Rigidbody>().isKinematic = true;
-        //}
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,16 +65,6 @@ public class Ball : MonoBehaviour
             trail.emitting = true;
             debugText.text = "Bat hit";
         }
-        //if (hitByBat && collision.gameObject.CompareTag("pitch"))
-        //{
-        //    hitGround = true;
-        //    debugText.text = debugText.text + "\nPitch hit korse";
-        //}
-        //if (hitByBat && collision.gameObject.CompareTag("field"))
-        //{
-        //    hitGround = true;
-        //    debugText.text = debugText.text + "\nField hit korse";
-        //}
         if(collision.gameObject.CompareTag("stamp"))
         {
             //out

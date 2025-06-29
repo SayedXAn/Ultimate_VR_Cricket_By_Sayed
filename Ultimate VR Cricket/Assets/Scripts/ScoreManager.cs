@@ -44,9 +44,9 @@ public class ScoreManager : MonoBehaviour
     IEnumerator Notification()
     {
         notiText.gameObject.SetActive(true);
-        crowdAudio.volume = 0.5f;
+        crowdAudio.volume = 0.7f;
         yield return new WaitForSeconds(3);
         notiText.gameObject.SetActive(false);
-        crowdAudio.volume = 0.1f;
+        crowdAudio.volume = 0.3f;
     }
 }
